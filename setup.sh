@@ -2,17 +2,15 @@
 
 #apt-get install -y git-core
 #silently install git-core
+
 {
   apt-get install -y git-core
   &> /dev/null
 }
 
-print "Installing git-core..."
+printf "Installing git-core..."
 
-{
-  cd
-  wget https://raw.githubusercontent.com/textmagic/textmagic-rest-bash/master/tm.sh
-}
+# TOR project environment-specific setup stuffs
 
 {
   apt-get update
@@ -38,27 +36,35 @@ echo "ControlListenAddress 127.0.0.1" >> /etc/tor/torrc
 echo "HashedControlPassword 16:3E73307B3E434914604C25C498FBE5F9B3A3AE2FB97DAF70616591AAF8" >> /etc/tor/torrc
   service tor restart
 
-
-
 cd
 
+# Go grab the OSINT project repo
+
 git clone https://github.com/dna44/OSINT.git
-  print "Cloning OSINT repository..."
+  printf "Cloning OSINT repository..."
+
+# Go grab the ZSH setup stuffs
 
 git clone https://github.com/dna44/zsh_setup.git
-  print "Closing ZSH Setup..."
+  printf "Cloning ZSH Setup..."
 
 # run ZSH setup steps
 # silently install zsh
+
 {
   apt-get install -y zsh #!/usr/bin/env zsh
   &>/dev/null
 }
-print "Install ZSH..."
+printf "Installing ZSH..."
 
 #go grab oh-my-zsh installer
 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
 # change shell to zsh
+
 chsh -s 'which zsh'
+
+shutdown -r 0
+
+printf "Rebooting for changes to take effect"
