@@ -45,26 +45,26 @@ git clone https://github.com/dna44/OSINT.git
 
 # Go grab the ZSH setup stuffs
 
-git clone https://github.com/dna44/zsh_setup.git
-  printf "Cloning ZSH Setup..."
+#git clone https://github.com/dna44/zsh_setup.git
+#  printf "Cloning ZSH Setup..."
 
 # run ZSH setup steps
 # silently install zsh
 
-{
-  apt-get install -y zsh #!/usr/bin/env zsh
-  &>/dev/null
-}
-printf "Installing ZSH..."
+# {
+#  apt-get install -y zsh #!/usr/bin/env zsh
+#  &>/dev/null
+#}
+#printf "Installing ZSH..."
 
 #go grab oh-my-zsh installer
 
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+#wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
 # change shell to zsh
 
-chsh -s 'which zsh'
+#chsh -s 'which zsh'
 
-shutdown -r 0
+#shutdown -r 0
 
-printf "Rebooting for changes to take effect"
+#printf "Rebooting for changes to take effect"
