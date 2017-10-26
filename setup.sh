@@ -13,7 +13,7 @@ printf "Installing git-core..."
 # TOR project environment-specific setup stuffs
 
 {
-  apt-get update
+  apt-get update -y
   apt-get install -y tor git bison libexif-dev
   apt-get install -y python-pip
   &>/dev/null
@@ -44,6 +44,16 @@ git clone https://github.com/dna44/OSINT.git
   printf "Cloning OSINT repository..."
 
 # Go grab the ZSH setup stuffs
+
+{
+  apt-get -y install zsh
+}
+
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+
+chsh -s `which zsh`
+
+shutdown -r 0
 
 #git clone https://github.com/dna44/zsh_setup.git
 #  printf "Cloning ZSH Setup..."
